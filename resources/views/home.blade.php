@@ -8,9 +8,7 @@
                 Painel para o Dashboard.
                 <div class="row">
                     <div class="col-md-4">
-                        <painel titulo="Conteúdo 1" cortitulo="blue" cortitulobody="blue-body">
-                            Painel para o 1º conteúdo.
-                        </painel>
+                        <caixa></caixa>
                     </div>
                     
                     <div class="col-md-4">
