@@ -8,19 +8,15 @@
                 Painel para o Dashboard.
                 <div class="row">
                     <div class="col-md-4">
-                        <caixa></caixa>
+                        <caixa qtd="781" titulo="Artigos" url="#" cor="orange" icone="ion ion-pie-graph"></caixa>
                     </div>
                     
                     <div class="col-md-4">
-                        <painel titulo="Conteúdo 2">
-                            Painel para o 2º conteúdo.
-                        </painel>
+                        <caixa qtd="2693" titulo="Usuários" url="#" cor="green" icone="ion ion-person-stalker"></caixa>
                     </div>
                     
                     <div class="col-md-4">
-                        <painel titulo="Conteúdo 3" cortitulo="orange" cortitulobody="orange-body">
-                            Painel para o 3º conteúdo.
-                        </painel>
+                        <caixa qtd="71" titulo="Autores" url="#" cor="red" icone="ion ion-ios-people"></caixa>
                     </div>
                 </div>
             </painel>
