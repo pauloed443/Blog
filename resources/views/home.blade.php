@@ -6,7 +6,7 @@
         Painel para o Dashboard.
         <div class="row">
             <div class="col-md-4">
-                <caixa qtd="781" titulo="Artigos" url="#" cor="orange" icone="ion ion-pie-graph"></caixa>
+                <caixa qtd="781" titulo="Artigos" url="{{route('artigos.index')}}" cor="orange" icone="ion ion-pie-graph"></caixa>
             </div>
             
             <div class="col-md-4">
