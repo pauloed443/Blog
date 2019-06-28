@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<pagina tamanho="7">
+<pagina tamanho="10">
     <painel titulo="Dashboard">
         Painel para o Dashboard.
         <div class="row">
