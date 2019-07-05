@@ -6,6 +6,11 @@
         <tabela-lista 
         v-bind:titulos="['#', 'Título', 'Descrição']"
         v-bind:itens="[[1, 'PHP O.O', 'Cuso de PHP O.O'], [1, 'VUE JS', 'Cuso de VUE JS']]"
+        criar="#criar"
+        detalhe="#detalhe"
+        editar="#editar"
+        deletar="#deletar"
+        token="5476876587"
         
         ></tabela-lista>
     </painel>
