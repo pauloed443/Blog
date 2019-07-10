@@ -60,6 +60,17 @@
         computed:{
             lista:function(){
                 //let busca = "php";
+
+                this.itens.sort(function(a,b) {
+                    if (a[0] < b[0]) {
+                        return 1;
+                    }
+                    if (a[0] > b[0]) {
+                        return -1;
+                    }
+                    return 0;
+                });
+
                 return this.itens.filter(res => {
                     for (let k = 0; k < res.length; k++) {
                         if((res[k] + "").toLowerCase().indexOf(this.buscar.toLowerCase()) >= 0){

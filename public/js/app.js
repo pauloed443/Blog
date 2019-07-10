@@ -2008,6 +2008,17 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       //let busca = "php";
+      this.itens.sort(function (a, b) {
+        if (a[0] < b[0]) {
+          return 1;
+        }
+
+        if (a[0] > b[0]) {
+          return -1;
+        }
+
+        return 0;
+      });
       return this.itens.filter(function (res) {
         for (var k = 0; k < res.length; k++) {
           if ((res[k] + "").toLowerCase().indexOf(_this.buscar.toLowerCase()) >= 0) {
