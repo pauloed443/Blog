@@ -1,6 +1,11 @@
 <template>
     <div>
-        <a v-if="criar" v-bind:href="criar">Criar</a>
+        <div class="row">
+            <a v-if="criar" v-bind:href="criar">Criar</a>
+            <div class="d-flex justify-content-end">
+                <input type="search" class="form-control" placeholder="Buscar" v-model="buscar">{{buscar}}
+            </div>
+        </div>
 
         <table class="table table-striped table-hover">
             <thead>
@@ -11,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(item,index) in itens">
+                <tr v-for="(item,index) in lista">
                     <td v-for="i in item">{{ i }}</td>
                     
                     <td v-if="detalhe || editar || deletar">
@@ -42,9 +47,23 @@
 <script>
     export default {
         props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token'],
+        data: function(){
+            return {
+                buscar:""
+            }
+        },
         methods:{
             executaForm: function(index){
                 document.getElementById(index).submit();
+            }
+        },
+        computed:{
+            lista:function(){
+                let busca = "php";
+                return this.itens.filter(res => {
+                    return true;
+                });
+                return this.itens;
             }
         }
     }
