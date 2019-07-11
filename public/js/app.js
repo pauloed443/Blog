@@ -2192,7 +2192,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['tipo', 'nome', 'titulo', 'css']
+});
 
 /***/ }),
 
@@ -38668,7 +38675,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _vm.tipo === "button"
+      ? _c(
+          "button",
+          {
+            class: _vm.css || "btn btn-primary",
+            attrs: {
+              type: "button",
+              "data-toggle": "modal",
+              "data-target": "#" + _vm.nome
+            }
+          },
+          [_vm._v("\n        " + _vm._s(_vm.titulo) + "\n    ")]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.tipo === "link"
+      ? _c(
+          "a",
+          {
+            class: _vm.css || "",
+            attrs: {
+              href: "",
+              "data-toggle": "modal",
+              "data-target": "#" + _vm.nome
+            }
+          },
+          [_vm._v(_vm._s(_vm.titulo))]
+        )
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
