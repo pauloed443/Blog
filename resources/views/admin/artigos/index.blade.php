@@ -22,7 +22,19 @@
             token="5476876587"
         ></tabela-lista>
     </painel>
-    <modal nome="meuModalTeste" titulo="Titulo Modal Teste"></modal>
+    <modal nome="meuModalTeste" titulo="Titulo Modal Teste">
+        <formulario css="" action="" method="put" enctype="" token="">
+            <div class="form-group">
+                <label for="titulo">Titulo</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="descricao">Email address</label>
+                <input type="text" class="form-control" id="descricao" name="descricao" placeholder="">
+            </div>
+            <button class="btn btn-primary">Adicionar</button>
+        </formulario>
+    </modal>
 </pagina>
 
 @endsection
