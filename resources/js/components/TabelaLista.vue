@@ -1,6 +1,9 @@
 <template>
     <div>
         <div class="row">
+            <!--exibindo um lista com vuex-->
+            <p>{{this.$store.state.itens}}</p>
+
             <a v-if="criar && !modal" v-bind:href="criar">Criar Sem Modal</a>
             <modallink v-if="criar && modal"
                 tipo="button" 
@@ -40,7 +43,7 @@
                                 titulo="Editar" 
                                 css=""
                             ></modallink>
-                            <a href="#" v-on:onclick="executaForm(index)"> Deletar |</a>
+                            <a href="#" v-on:onclick="executaForm(index)"> Deletar</a>
                         </form>
                         <span v-if="!token">
                             <a v-if="detalhe" v-bind:href="detalhe">Detalhe |</a>
@@ -51,7 +54,7 @@
                                 titulo="Editar" 
                                 css=""
                             ></modallink>
-                            <a v-if="deletar" v-bind:href="deletar">Deletar |</a>
+                            <a v-if="deletar" v-bind:href="deletar">Deletar</a>
                         </span>
                         <span v-if="token && !deletar">
                             <a v-if="detalhe" v-bind:href="detalhe">Detalhe |</a>
@@ -95,6 +98,8 @@
         },
         computed:{
             lista:function(){
+                //alterando um valor com vuex
+                this.$store.commit('setItens', {ops: "ok"});
                 
                 let ordem = this.ordemAux;
                 let ordemCol = this.ordemAuxCol;

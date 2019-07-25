@@ -7,6 +7,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import Vuex from 'Vuex';
+Vue.use(Vuex);
 
 /**
  * The following block of code may be used to automatically register your
@@ -15,6 +17,17 @@ window.Vue = require('vue');
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
+
+ const store = new Vuex.Store({
+    state:{
+        itens:{teste: "funcionou!"}
+    },
+    mutations:{
+        setItens(state, obj){
+            state.itens = obj;
+        }
+    }
+ });
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
@@ -39,4 +52,5 @@ Vue.component('formulario', require('./components/Formulario.vue').default);
 
 const app = new Vue({
     el: '#app',
+    store
 });
