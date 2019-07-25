@@ -4,12 +4,7 @@
 <pagina tamanho="10">
     <painel titulo="Lista de Artigos">
         <migalhas v-bind:lista="{{$listaMigalhas}}"></migalhas>
-        <modallink 
-            tipo="button" 
-            nome="meuModalTeste" 
-            titulo="Botão Show Modal Teste" 
-            css=""
-        ></modallink>
+        
         <tabela-lista
             v-bind:titulos="['#', 'Título', 'Descrição']"
             v-bind:itens="{{$listaArtigos}}"
@@ -20,9 +15,10 @@
             editar="#editar"
             deletar="#deletar"
             token="5476876587"
+            modal="t"
         ></tabela-lista>
     </painel>
-    <modal nome="meuModalTeste" titulo="Titulo Modal Teste">
+    <modal nome="adicionar" titulo="Titulo Modal Adicionar">
         <formulario css="" action="" method="put" enctype="" token="">
             <div class="form-group">
                 <label for="titulo">Titulo</label>
@@ -33,6 +29,19 @@
                 <input type="text" class="form-control" id="descricao" name="descricao" placeholder="">
             </div>
             <button class="btn btn-primary">Adicionar</button>
+        </formulario>
+    </modal>
+    <modal nome="editar" titulo="Titulo Modal Editar">
+        <formulario css="" action="" method="put" enctype="" token="">
+            <div class="form-group">
+                <label for="titulo">Titulo</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="descricao">Email address</label>
+                <input type="text" class="form-control" id="descricao" name="descricao" placeholder="">
+            </div>
+            <button class="btn btn-primary">Salvar</button>
         </formulario>
     </modal>
 </pagina>
