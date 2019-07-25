@@ -3160,10 +3160,6 @@ __webpack_require__.r(__webpack_exports__);
     lista: function lista() {
       var _this = this;
 
-      //alterando um valor com vuex
-      this.$store.commit('setItens', {
-        ops: "ok"
-      });
       var ordem = this.ordemAux;
       var ordemCol = this.ordemAuxCol;
       ordem = ordem.toLowerCase();
@@ -3309,8 +3305,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['tipo', 'nome', 'titulo', 'css']
+  props: ['tipo', 'nome', 'titulo', 'css', 'item'],
+  methods: {
+    preencheFormulario: function preencheFormulario() {
+      this.$store.commit('setItem', this.item);
+    }
+  }
 });
 
 /***/ }),
@@ -39496,8 +39506,6 @@ var render = function() {
       "div",
       { staticClass: "row" },
       [
-        _c("p", [_vm._v(_vm._s(this.$store.state.itens))]),
-        _vm._v(" "),
         _vm.criar && !_vm.modal
           ? _c("a", { attrs: { href: _vm.criar } }, [_vm._v("Criar Sem Modal")])
           : _vm._e(),
@@ -39631,7 +39639,8 @@ var render = function() {
                                     tipo: "button",
                                     nome: "editar",
                                     titulo: "Editar",
-                                    css: ""
+                                    css: "",
+                                    item: item
                                   }
                                 })
                               : _vm._e(),
@@ -39675,7 +39684,8 @@ var render = function() {
                                     tipo: "button",
                                     nome: "editar",
                                     titulo: "Editar",
-                                    css: ""
+                                    css: "",
+                                    item: item
                                   }
                                 })
                               : _vm._e(),
@@ -39904,35 +39914,75 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm.tipo === "button"
-      ? _c(
-          "button",
-          {
-            class: _vm.css || "btn btn-primary",
-            attrs: {
-              type: "button",
-              "data-toggle": "modal",
-              "data-target": "#" + _vm.nome
-            }
-          },
-          [_vm._v("\n        " + _vm._s(_vm.titulo) + "\n    ")]
-        )
+  return _c("span", [
+    _vm.item
+      ? _c("span", [
+          _vm.tipo === "button"
+            ? _c(
+                "button",
+                {
+                  class: _vm.css || "btn btn-primary",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  },
+                  on: { click: _vm.preencheFormulario }
+                },
+                [_vm._v("\n            " + _vm._s(_vm.titulo) + "\n        ")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.tipo === "link"
+            ? _c(
+                "a",
+                {
+                  class: _vm.css || "",
+                  attrs: {
+                    href: "",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  },
+                  on: { click: _vm.preencheFormulario }
+                },
+                [_vm._v(_vm._s(_vm.titulo))]
+              )
+            : _vm._e()
+        ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.tipo === "link"
-      ? _c(
-          "a",
-          {
-            class: _vm.css || "",
-            attrs: {
-              href: "",
-              "data-toggle": "modal",
-              "data-target": "#" + _vm.nome
-            }
-          },
-          [_vm._v(_vm._s(_vm.titulo))]
-        )
+    !_vm.item
+      ? _c("span", [
+          _vm.tipo === "button"
+            ? _c(
+                "button",
+                {
+                  class: _vm.css || "btn btn-primary",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  }
+                },
+                [_vm._v("\n            " + _vm._s(_vm.titulo) + "\n        ")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.tipo === "link"
+            ? _c(
+                "a",
+                {
+                  class: _vm.css || "",
+                  attrs: {
+                    href: "",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  }
+                },
+                [_vm._v(_vm._s(_vm.titulo))]
+              )
+            : _vm._e()
+        ])
       : _vm._e()
   ])
 }
@@ -52109,13 +52159,11 @@ Vue.use(Vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 var store = new Vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
   state: {
-    itens: {
-      teste: "funcionou!"
-    }
+    item: {}
   },
   mutations: {
-    setItens: function setItens(state, obj) {
-      state.itens = obj;
+    setItem: function setItem(state, obj) {
+      state.item = obj;
     }
   }
 }); // const files = require.context('./', true, /\.vue$/i);
