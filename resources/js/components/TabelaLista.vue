@@ -33,7 +33,15 @@
                             <input type="hidden" name="_method" id="method" value="DELETE">
                             <input type="hidden" name="_token" id="token" v-bind:value="token">
 
-                            <a v-if="detalhe" v-bind:href="detalhe"> Detalhe |</a>
+                            <a v-if="detalhe && !modal" v-bind:href="detalhe"> Detalhe |</a>
+                            <modallink v-if="detalhe && modal"
+                                tipo="button" 
+                                nome="detalhe" 
+                                titulo="Detalhe" 
+                                css=""
+                                v-bind:item="item"
+                            ></modallink>
+
                             <a v-if="editar && !modal" v-bind:href="editar"> Editar |</a>
                             <modallink v-if="editar && modal"
                                 tipo="button" 
@@ -45,7 +53,15 @@
                             <a href="#" v-on:onclick="executaForm(index)"> Deletar</a>
                         </form>
                         <span v-if="!token">
-                            <a v-if="detalhe" v-bind:href="detalhe">Detalhe |</a>
+                            <a v-if="detalhe && !modal" v-bind:href="detalhe">Detalhe |</a>
+                            <modallink v-if="detalhe && modal"
+                                tipo="button" 
+                                nome="detalhe" 
+                                titulo="Detalhe" 
+                                css=""
+                                v-bind:item="item"
+                            ></modallink>
+
                             <a v-if="editar && !modal" v-bind:href="editar"> Editar |</a>
                             <modallink v-if="editar && modal"
                                 tipo="button" 

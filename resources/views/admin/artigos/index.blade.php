@@ -44,6 +44,11 @@
             <button class="btn btn-primary">Salvar</button>
         </formulario>
     </modal>
+    <modal nome="detalhe" titulo="Titulo Modal Detalhe">
+        <painel v-bind:titulo="$store.state.item.titulo">
+            @{{$store.state.item.descricao}}
+        </painel>
+    </modal>
 </pagina>
 
 @endsection
