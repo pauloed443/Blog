@@ -44,7 +44,7 @@
             <button class="btn btn-primary">Salvar</button>
         </formulario>
     </modal>
-    <modal nome="detalhe" titulo="Titulo Modal Detalhe">
+    <modal nome="detalhe" titulo="Detalhes do Artigo">
         <painel v-bind:titulo="$store.state.item.titulo">
             @{{$store.state.item.descricao}}
         </painel>
