@@ -18,8 +18,9 @@
             modal="t"
         ></tabela-lista>
     </painel>
+
     <modal nome="adicionar" titulo="Titulo Modal Adicionar">
-        <formulario css="" action="" method="put" enctype="" token="">
+        <formulario id="formAdicionar" css="" action="" method="put" enctype="" token="">
             <div class="form-group">
                 <label for="titulo">Titulo</label>
                 <input type="text" class="form-control" id="titulo" name="titulo" placeholder="">
@@ -28,11 +29,14 @@
                 <label for="descricao">Email address</label>
                 <input type="text" class="form-control" id="descricao" name="descricao" placeholder="">
             </div>
-            <button class="btn btn-primary">Adicionar</button>
         </formulario>
+        <span slot="botoes">
+            <button form="formAdicionar" class="btn btn-primary">Adicionar</button>
+        </span>
     </modal>
+
     <modal nome="editar" titulo="Titulo Modal Editar">
-        <formulario css="" action="" method="put" enctype="" token="">
+        <formulario id="formEditar" css="" action="" method="put" enctype="" token="">
             <div class="form-group">
                 <label for="titulo">Titulo</label>
                 <input type="text" class="form-control" id="titulo" name="titulo" v-model="$store.state.item.titulo" placeholder="">
@@ -41,9 +45,12 @@
                 <label for="descricao">Email address</label>
                 <input type="text" class="form-control" id="descricao" name="descricao" v-model="$store.state.item.descricao" placeholder="">
             </div>
-            <button class="btn btn-primary">Salvar</button>
         </formulario>
+        <span slot="botoes">
+            <button form="formEditar" class="btn btn-primary">Salvar</button>
+        </span>
     </modal>
+
     <modal nome="detalhe" titulo="Detalhes do Artigo">
         <painel v-bind:titulo="$store.state.item.titulo">
             @{{$store.state.item.descricao}}

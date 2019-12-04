@@ -3209,6 +3209,8 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.buscar) {
         return this.itens.filter(function (res) {
+          res = Object.values(res);
+
           for (var k = 0; k < res.length; k++) {
             if ((res[k] + "").toLowerCase().indexOf(_this.buscar.toLowerCase()) >= 0) {
               return true;
@@ -39537,7 +39539,7 @@ var render = function() {
             })
           : _vm._e(),
         _vm._v(" "),
-        _c("div", { staticClass: "d-flex justify-content-end" }, [
+        _c("div", { staticClass: "col-6 d-flex justify-content-end" }, [
           _c("input", {
             directives: [
               {
@@ -39558,8 +39560,7 @@ var render = function() {
                 _vm.buscar = $event.target.value
               }
             }
-          }),
-          _vm._v(_vm._s(_vm.buscar) + "\n        ")
+          })
         ])
       ],
       1
@@ -39865,7 +39866,7 @@ var render = function() {
         id: _vm.nome,
         tabindex: "-1",
         role: "dialog",
-        "aria-labelledby": "exampleModalLabel",
+        "aria-labelledby": _vm.nome,
         "aria-hidden": "true"
       }
     },
@@ -39887,7 +39888,23 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "modal-body" }, [_vm._t("default")], 2),
           _vm._v(" "),
-          _vm._m(1)
+          _c(
+            "div",
+            { staticClass: "modal-footer" },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-dismiss": "modal" }
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _vm._t("botoes")
+            ],
+            2
+          )
         ])
       ])
     ]
@@ -39910,27 +39927,6 @@ var staticRenderFns = [
       },
       [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Close")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("Save changes")]
-      )
-    ])
   }
 ]
 render._withStripped = true

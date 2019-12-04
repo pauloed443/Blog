@@ -9,8 +9,8 @@
                 titulo="Adicionar" 
                 css=""
             ></modallink>
-            <div class="d-flex justify-content-end">
-                <input type="search" class="form-control" placeholder="Buscar" v-model="buscar">{{buscar}}
+            <div class="col-6 d-flex justify-content-end">
+                <input type="search" class="form-control" placeholder="Buscar" v-model="buscar">
             </div>
         </div>
 
@@ -136,6 +136,7 @@
 
                 if (this.buscar) {
                     return this.itens.filter(res => {
+                        res = Object.values(res);
                         for (let k = 0; k < res.length; k++) {
                             if((res[k] + "").toLowerCase().indexOf(this.buscar.toLowerCase()) >= 0){
                                 return true;
