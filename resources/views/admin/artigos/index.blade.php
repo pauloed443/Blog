@@ -4,7 +4,7 @@
 <pagina tamanho="10">
     <painel titulo="Lista de Artigos">
         <migalhas v-bind:lista="{{$listaMigalhas}}"></migalhas>
-        
+
         <tabela-lista
             v-bind:titulos="['#', 'Título', 'Descrição']"
             v-bind:itens="{{$listaArtigos}}"
@@ -20,7 +20,7 @@
     </painel>
 
     <modal nome="adicionar" titulo="Titulo Modal Adicionar">
-        <formulario id="formAdicionar" css="" action="" method="put" enctype="" token="">
+        <formulario id="formAdicionar" css="" action="" method="POST" enctype="" token="">
             <div class="form-group">
                 <label for="titulo">Titulo</label>
                 <input type="text" class="form-control" id="titulo" name="titulo" placeholder="">
@@ -51,10 +51,8 @@
         </span>
     </modal>
 
-    <modal nome="detalhe" titulo="Detalhes do Artigo">
-        <painel v-bind:titulo="$store.state.item.titulo">
-            @{{$store.state.item.descricao}}
-        </painel>
+    <modal nome="detalhe" v-bind:titulo="$store.state.item.titulo">
+        @{{$store.state.item.descricao}}
     </modal>
 </pagina>
 
