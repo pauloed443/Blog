@@ -2,6 +2,17 @@
 
 @section('content')
 <pagina tamanho="10">
+    @if($errors->all())
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Oloco, meu!</strong>
+            @foreach($errors->all() as $value)
+                <li>{{ $value }}</li>
+            @endforeach
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
     <painel titulo="Lista de Artigos">
         <migalhas v-bind:lista="{{$listaMigalhas}}"></migalhas>
 
@@ -23,19 +34,19 @@
         <formulario id="formAdicionar" css="" action="{{ route('artigos.store') }}" method="POST" enctype="" token="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="titulo">Titulo</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="">
+                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="" value="{{ old('titulo') }}">
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição</label>
-                <input type="text" class="form-control" id="descricao" name="descricao" placeholder="">
+                <input type="text" class="form-control" id="descricao" name="descricao" placeholder="" value="{{ old('descricao') }}">
             </div>
             <div class="form-group">
                 <label for="conteudo">Conteúdo</label>
-                <textarea class="form-control" id="conteudo" name="conteudo"></textarea>
+                <textarea class="form-control" id="conteudo" name="conteudo">{{ old('conteudo') }}</textarea>
             </div>
             <div class="form-group">
                 <label for="dataPublicacao">Data de Publicação</label>
-                <input type="datetime-local" class="form-control" id="dataPublicacao" name="dataPublicacao">
+                <input type="datetime-local" class="form-control" id="dataPublicacao" name="dataPublicacao" value="{{ old('dataPublicacao') }}">
             </div>
         </formulario>
         <span slot="botoes">

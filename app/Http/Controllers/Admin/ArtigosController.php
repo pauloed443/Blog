@@ -48,8 +48,18 @@ class ArtigosController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $data = $request->all();
+
+        $validator = \Validator::make($data, [
+          'titulo' => 'required',
+          'descricao' => 'required',
+          'conteudo' => 'required',
+          'dataPublicacao' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+          return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         Artigo::create($data);
         return redirect()->back();
