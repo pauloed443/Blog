@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use App\Artigo;
 
 class ArtigosController extends Controller
@@ -50,7 +51,7 @@ class ArtigosController extends Controller
     {
         $data = $request->all();
 
-        $validator = \Validator::make($data, [
+        $validator = Validator::make($data, [
           'titulo' => 'required',
           'descricao' => 'required',
           'conteudo' => 'required',
