@@ -23,7 +23,7 @@
             ordemcol="0"
             criar="#criar"
             detalhe="artigos/"
-            editar="#editar"
+            editar="artigos/"
             deletar="#deletar"
             token="5476876587"
             modal="t"
@@ -54,15 +54,23 @@
         </span>
     </modal>
 
-    <modal nome="editar" titulo="Titulo Modal Editar">
-        <formulario id="formEditar" css="" action="" method="put" enctype="" token="">
+    <modal nome="editar" titulo="Editação de artigo">
+        <formulario id="formEditar" css="" :action="'artigos/' + $store.state.item.id" method="put" enctype="" token="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="titulo">Titulo</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" v-model="$store.state.item.titulo" placeholder="">
+                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="" v-model="$store.state.item.titulo">
             </div>
             <div class="form-group">
-                <label for="descricao">Email address</label>
-                <input type="text" class="form-control" id="descricao" name="descricao" v-model="$store.state.item.descricao" placeholder="">
+                <label for="descricao">Descrição</label>
+                <input type="text" class="form-control" id="descricao" name="descricao" placeholder="" v-model="$store.state.item.descricao">
+            </div>
+            <div class="form-group">
+                <label for="conteudo">Conteúdo</label>
+                <textarea class="form-control" id="conteudo" name="conteudo" v-model="$store.state.item.conteudo"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="dataPublicacao">Data de Publicação</label>
+                <input type="datetime-local" class="form-control" id="dataPublicacao" name="dataPublicacao" v-model="$store.state.item.dataPublicacao">
             </div>
         </formulario>
         <span slot="botoes">

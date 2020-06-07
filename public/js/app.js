@@ -3151,6 +3151,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['titulos', 'itens', 'ordem', 'ordemcol', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'modal'],
   data: function data() {
@@ -39677,7 +39679,8 @@ var render = function() {
                                     nome: "editar",
                                     titulo: "Editar",
                                     css: "",
-                                    item: item
+                                    item: item,
+                                    url: _vm.editar
                                   }
                                 })
                               : _vm._e(),
@@ -39735,7 +39738,8 @@ var render = function() {
                                     nome: "editar",
                                     titulo: "Editar",
                                     css: "",
-                                    item: item
+                                    item: item,
+                                    url: _vm.editar
                                   }
                                 })
                               : _vm._e(),

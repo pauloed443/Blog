@@ -50,6 +50,7 @@
                                 titulo="Editar" 
                                 css=""
                                 v-bind:item="item"
+                                v-bind:url="editar"
                             ></modallink>
                             <a href="#" v-on:onclick="executaForm(index)"> Deletar</a>
                         </form>
@@ -71,6 +72,7 @@
                                 titulo="Editar" 
                                 css=""
                                 v-bind:item="item"
+                                v-bind:url="editar"
                             ></modallink>
                             <a v-if="deletar" v-bind:href="deletar">Deletar</a>
                         </span>
