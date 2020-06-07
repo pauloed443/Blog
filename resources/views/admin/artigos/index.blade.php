@@ -24,8 +24,8 @@
             criar="#criar"
             detalhe="artigos/"
             editar="artigos/"
-            deletar="#deletar"
-            token="5476876587"
+            deletar="artigos/"
+            token="{{ csrf_token() }}"
             modal="t"
         ></tabela-lista>
     </painel>
