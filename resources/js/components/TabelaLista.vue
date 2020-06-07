@@ -40,6 +40,7 @@
                                 titulo="Detalhe" 
                                 css=""
                                 v-bind:item="item"
+                                v-bind:url="detalhe"
                             ></modallink>
 
                             <a v-if="editar && !modal" v-bind:href="editar"> Editar |</a>
@@ -60,6 +61,7 @@
                                 titulo="Detalhe" 
                                 css=""
                                 v-bind:item="item"
+                                v-bind:url="detalhe"
                             ></modallink>
 
                             <a v-if="editar && !modal" v-bind:href="editar"> Editar |</a>

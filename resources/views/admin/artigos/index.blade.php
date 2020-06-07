@@ -22,7 +22,7 @@
             ordem="desc"
             ordemcol="0"
             criar="#criar"
-            detalhe="#detalhe"
+            detalhe="artigos/"
             editar="#editar"
             deletar="#deletar"
             token="5476876587"
@@ -71,7 +71,8 @@
     </modal>
 
     <modal nome="detalhe" v-bind:titulo="$store.state.item.titulo">
-        @{{$store.state.item.descricao}}
+        <p>@{{$store.state.item.descricao}}</p>
+        <p>@{{$store.state.item.conteudo}}</p>
     </modal>
 </pagina>
 

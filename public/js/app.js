@@ -3149,6 +3149,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['titulos', 'itens', 'ordem', 'ordemcol', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'modal'],
   data: function data() {
@@ -3333,10 +3335,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['tipo', 'nome', 'titulo', 'css', 'item'],
+  props: ['tipo', 'nome', 'titulo', 'css', 'item', 'url'],
   methods: {
     preencheFormulario: function preencheFormulario() {
-      this.$store.commit('setItem', this.item);
+      var _this = this;
+
+      axios.get(this.url + this.item.id).then(function (res) {
+        //console.log("Funcionou o axios: " + res.data);
+        _this.$store.commit('setItem', res.data);
+      }); //this.$store.commit('setItem', this.item);
     }
   }
 });
@@ -39651,7 +39658,8 @@ var render = function() {
                                     nome: "detalhe",
                                     titulo: "Detalhe",
                                     css: "",
-                                    item: item
+                                    item: item,
+                                    url: _vm.detalhe
                                   }
                                 })
                               : _vm._e(),
@@ -39708,7 +39716,8 @@ var render = function() {
                                     nome: "detalhe",
                                     titulo: "Detalhe",
                                     css: "",
-                                    item: item
+                                    item: item,
+                                    url: _vm.detalhe
                                   }
                                 })
                               : _vm._e(),
@@ -52966,8 +52975,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\xampp\htdocs\Blog\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! c:\xampp\htdocs\Blog\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Blog\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Blog\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
