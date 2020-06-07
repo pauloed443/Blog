@@ -3180,13 +3180,14 @@ __webpack_require__.r(__webpack_exports__);
     lista: function lista() {
       var _this = this;
 
+      var lista = this.itens.data;
       var ordem = this.ordemAux;
       var ordemCol = this.ordemAuxCol;
       ordem = ordem.toLowerCase();
       ordemCol = parseInt(ordemCol);
 
       if (ordem === "asc") {
-        this.itens.sort(function (a, b) {
+        lista.sort(function (a, b) {
           if (Object.values(a)[ordemCol] > Object.values(b)[ordemCol]) {
             return 1;
           }
@@ -3198,7 +3199,7 @@ __webpack_require__.r(__webpack_exports__);
           return 0;
         });
       } else {
-        this.itens.sort(function (a, b) {
+        lista.sort(function (a, b) {
           if (Object.values(a)[ordemCol] < Object.values(b)[ordemCol]) {
             return 1;
           }
@@ -3212,7 +3213,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (this.buscar) {
-        return this.itens.filter(function (res) {
+        return lista.filter(function (res) {
           res = Object.values(res);
 
           for (var k = 0; k < res.length; k++) {
@@ -3225,7 +3226,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
 
-      return this.itens;
+      return lista;
     }
   }
 });

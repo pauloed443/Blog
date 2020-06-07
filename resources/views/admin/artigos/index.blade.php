@@ -18,7 +18,7 @@
 
         <tabela-lista
             v-bind:titulos="['#', 'Título', 'Descrição', 'Publicação']"
-            v-bind:itens="{{$listaArtigos}}"
+            v-bind:itens="{{json_encode($listaArtigos)}}"
             ordem="desc"
             ordemcol="0"
             criar="#criar"
@@ -28,6 +28,9 @@
             token="{{ csrf_token() }}"
             modal="t"
         ></tabela-lista>
+        <div class="d-flex justify-content-center">
+            {{ $listaArtigos }}
+        </div>
     </painel>
 
     <modal nome="adicionar" titulo="Titulo Modal Adicionar">

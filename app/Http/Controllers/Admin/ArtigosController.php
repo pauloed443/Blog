@@ -26,7 +26,7 @@ class ArtigosController extends Controller
             ["id"=>2, "titulo"=>"VUE JS", "descricao"=>"Cuso de VUE JS", "dataPublicacao"=>"2020-07-01"]
         ]);*/
 
-        $listaArtigos = json_encode(Artigo::select('id','titulo','descricao','dataPublicacao')->get());
+        $listaArtigos = Artigo::select('id','titulo','descricao','dataPublicacao')->paginate(2);
 
         return view('admin.artigos.index', compact('listaMigalhas', 'listaArtigos'));
     }
