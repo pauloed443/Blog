@@ -7,11 +7,11 @@
         Painel para o Dashboard.
         <div class="row">
             <div class="col-md-4">
-                <caixa qtd="781" titulo="Artigos" url="{{route('artigos.index')}}" cor="orange" icone="ion ion-pie-graph"></caixa>
+                <caixa qtd="{{$countArtigos}}" titulo="Artigos" url="{{route('artigos.index')}}" cor="orange" icone="ion ion-pie-graph"></caixa>
             </div>
             
             <div class="col-md-4">
-                <caixa qtd="2693" titulo="Usuários" url="#" cor="green" icone="ion ion-person-stalker"></caixa>
+                <caixa qtd="2693" titulo="Usuários" url="{{route('usuarios.index')}}" cor="green" icone="ion ion-person-stalker"></caixa>
             </div>
             
             <div class="col-md-4">
