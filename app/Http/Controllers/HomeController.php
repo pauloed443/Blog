@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Artigo;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -29,7 +30,9 @@ class HomeController extends Controller
         ]);
 
         $countArtigos = Artigo::count();
+        $countUsuarios = User::count();
+        $countAutores = User::where('autor', 'S')->count();
 
-        return view('home', compact('listaMigalhas', 'countArtigos'));
+        return view('home', compact('listaMigalhas', 'countArtigos', 'countUsuarios', 'countAutores'));
     }
 }

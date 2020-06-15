@@ -11,11 +11,11 @@
             </div>
             
             <div class="col-md-4">
-                <caixa qtd="2693" titulo="Usuários" url="{{route('usuarios.index')}}" cor="green" icone="ion ion-person-stalker"></caixa>
+                <caixa qtd="{{$countUsuarios}}" titulo="Usuários" url="{{route('usuarios.index')}}" cor="green" icone="ion ion-person-stalker"></caixa>
             </div>
             
             <div class="col-md-4">
-                <caixa qtd="71" titulo="Autores" url="{{route('autores.index')}}" cor="red" icone="ion ion-ios-people"></caixa>
+                <caixa qtd="{{$countAutores}}" titulo="Autores" url="{{route('autores.index')}}" cor="red" icone="ion ion-ios-people"></caixa>
             </div>
         </div>
     </painel>
