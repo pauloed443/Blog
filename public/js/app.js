@@ -2914,7 +2914,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['css', 'action', 'method', 'enctype', 'token'],
+  props: ['css', 'action', 'method', 'enctype', 'token', 'autocomplete'],
   data: function data() {
     return {
       alterMethod: ""
@@ -39385,7 +39385,8 @@ var render = function() {
       attrs: {
         action: _vm.action,
         method: _vm.defineMethod,
-        enctype: _vm.enctype
+        enctype: _vm.enctype,
+        autocomplete: _vm.autocomplete
       }
     },
     [
@@ -39912,7 +39913,7 @@ var render = function() {
                   staticClass: "btn btn-secondary",
                   attrs: { type: "button", "data-dismiss": "modal" }
                 },
-                [_vm._v("Close")]
+                [_vm._v("Fechar")]
               ),
               _vm._v(" "),
               _vm._t("botoes")

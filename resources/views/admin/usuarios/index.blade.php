@@ -54,18 +54,18 @@
     </modal>
 
     <modal nome="editar" titulo="Edição de Usuário">
-        <formulario id="formEditar" css="" :action="'usuarios/' + $store.state.item.id" method="put" enctype="" token="{{ csrf_token() }}">
+        <formulario id="formEditar" css="" :action="'usuarios/' + $store.state.item.id" method="put" enctype="" token="{{ csrf_token() }}" autocomplete="off">
             <div class="form-group">
                 <label for="name">Nome</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="" v-model="$store.state.item.name">
             </div>
             <div class="form-group">
                 <label for="email">E-mail</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="" v-model="$store.state.item.email">
+                <input type="email" class="form-control" id="email" name="email" placeholder="" v-model="$store.state.item.email" autocomplete="off">
             </div>
             <div class="form-group">
                 <label for="password">Senha</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <input type="password" class="form-control" id="password" name="password" autocomplete="off">
             </div>
         </formulario>
         <span slot="botoes">
@@ -73,9 +73,9 @@
         </span>
     </modal>
 
-    <modal nome="detalhe" v-bind:titulo="$store.state.item.titulo">
-        <p>@{{$store.state.item.descricao}}</p>
-        <p>@{{$store.state.item.conteudo}}</p>
+    <modal nome="detalhe" titulo="Usuário">
+        <p>@{{$store.state.item.name}}</p>
+        <p>@{{$store.state.item.email}}</p>
     </modal>
 </pagina>
 
