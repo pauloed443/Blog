@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Artigo;
@@ -26,7 +27,13 @@ class ArtigosController extends Controller
             ["id"=>2, "titulo"=>"VUE JS", "descricao"=>"Cuso de VUE JS", "dataPublicacao"=>"2020-07-01"]
         ]);*/
 
-        $listaArtigos = Artigo::select('id','titulo','descricao', 'user_id', 'dataPublicacao')->paginate(5);
+        // $listaArtigos = Artigo::select('id','titulo','descricao', 'user_id', 'dataPublicacao')->paginate(5);
+        
+        $listaArtigos = DB::table('artigos')
+                            ->join('users', 'users.id', '=', 'artigos.user_id')
+                            ->select('artigos.id','artigos.titulo','artigos.descricao', 'users.name', 'artigos.dataPublicacao')
+                            ->whereNull('deleted_at')
+                            ->paginate(5);
 
         return view('admin.artigos.index', compact('listaMigalhas', 'listaArtigos'));
     }
