@@ -22,7 +22,7 @@
 <body>
     <div id="app" style="display:none;">
 
-        <topo titulo="{{ config('app.name', 'Laravel') }}" url="{{ url('/') }}">
+        <topo titulo="{{ config('app.name', 'Mini Water') }}" url="{{ url('/') }}">
             <!-- Authentication Links -->
             @guest
                 <li class="nav-item">
@@ -40,6 +40,9 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('admin')}}">
+                            Painel Admin
+                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
