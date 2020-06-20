@@ -2916,7 +2916,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['titulo', 'descricao', 'data', 'autor', 'link', 'textLink', 'imagemLink']
+  props: ['titulo', 'descricao', 'data', 'autor', 'link', 'linktexto', 'imagemlink']
 });
 
 /***/ }),
@@ -39408,11 +39408,7 @@ var render = function() {
   return _c("div", { staticClass: "card" }, [
     _c("img", {
       staticClass: "card-img-top",
-      attrs: {
-        src:
-          "https://z9t4u9f6.stackpathcdn.com/wp-content/uploads/2018/09/gradient-card.jpg",
-        alt: "..."
-      }
+      attrs: { src: _vm.imagemlink, alt: "..." }
     }),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
@@ -39427,7 +39423,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("a", { staticClass: "card-link", attrs: { href: _vm.link } }, [
-        _vm._v(_vm._s(_vm.textLink))
+        _vm._v(_vm._s(_vm.linktexto))
       ])
     ])
   ])

@@ -45,4 +45,17 @@ class Artigo extends Model
 
         return $response;
     }
+    
+    public static function getArtigosSite()
+    {
+        $response = DB::table('artigos')
+                            ->join('users', 'users.id', '=', 'artigos.user_id')
+                            ->select('artigos.id','artigos.titulo','artigos.descricao', 'users.name as autor', 'artigos.dataPublicacao')
+                            ->whereNull('artigos.deleted_at')
+                            ->whereDate('artigos.dataPublicacao', '<=', date('Y-m-d'))
+                            ->orderBy('artigos.dataPublicacao', 'DESC')
+                            ->get();
+
+        return $response;
+    }
 }
