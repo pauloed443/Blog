@@ -8,7 +8,7 @@
                 <card
                     titulo="{{ $artigo->titulo }}"
                     descricao="{{ $artigo->descricao }}"
-                    data="{{ date('d/m/Y H:i', strtotime($artigo->dataPublicacao)) }}"
+                    data="{{ $artigo->dataPublicacao }}"
                     autor="{{ $artigo->autor }}"
                     link="#"
                     linktexto="Veja mais"

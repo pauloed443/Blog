@@ -26,7 +26,7 @@
             </thead>
             <tbody>
                 <tr v-for="(item,index) in lista">
-                    <td v-for="i in item">{{ i }}</td>
+                    <td v-for="i in item">{{ i | FrontEndFormatDate }}</td>
                     
                     <td v-if="detalhe || editar || deletar">
                         <form v-bind:id="index" v-if="deletar && token" v-bind:action="deletar + item.id" method="POST">
@@ -94,6 +94,7 @@
 </template>
 
 <script>
+    import moment from 'moment';
     export default {
         props: ['titulos', 'itens', 'ordem', 'ordemcol', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'modal'],
         data: function(){
@@ -114,6 +115,23 @@
                 } else {
                     this.ordemAux = "asc";
                 }
+            }
+        },
+        filters:{
+            FrontEndFormatDate(value){
+                if (!value) return '';
+
+                let valueAux = value.toString().split('-');
+
+                if (valueAux.length == 3) {
+                    if (valueAux[2].split(':').length == 2) {
+                        return moment(value).format('DD/MM/YYYY hh:mm');
+                    } else {
+                        return moment(value).format('DD/MM/YYYY');
+                    }
+                }
+
+                return value;
             }
         },
         computed:{

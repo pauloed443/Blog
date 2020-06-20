@@ -4,14 +4,32 @@
         <div class="card-body">
             <h5 class="card-title">{{ titulo }}</h5>
             <p class="card-text">{{ descricao }}</p>
-            <p class="card-text"><small class="text-muted">{{ data }} - {{ autor }}</small></p>
+            <p class="card-text"><small class="text-muted">{{ autor | capitalize }} • {{ data | FrontEndFormatDate }}</small></p>
             <a :href="link" class="card-link">{{ linktexto }}</a>
         </div>
     </div>
 </template>
 
 <script>
+    import moment from 'moment';
     export default {
-        props: ['titulo', 'descricao', 'data', 'autor', 'link', 'linktexto', 'imagemlink']
+        props: ['titulo', 'descricao', 'data', 'autor', 'link', 'linktexto', 'imagemlink'],
+        filters:{
+            FrontEndFormatDate(value){
+                if (!value) return '';
+
+                let valueAux = value.toString().split('-');
+
+                if (valueAux.length == 3) {
+                    if (valueAux[2].split(':').length == 2) {
+                        return moment(value).format('DD/MM/YYYY hh:mm');
+                    } else {
+                        return moment(value).format('DD/MM/YYYY');
+                    }
+                }
+
+                return value;
+            }
+        },
     }
 </script>
