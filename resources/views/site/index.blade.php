@@ -10,7 +10,7 @@
                     descricao="{{ $artigo->descricao }}"
                     data="{{ $artigo->dataPublicacao }}"
                     autor="{{ $artigo->autor }}"
-                    link="#"
+                    link="{{ route('site.artigo', [$artigo->id, str_slug($artigo->titulo)]) }}"
                     linktexto="Veja mais"
                     imagemlink="https://z9t4u9f6.stackpathcdn.com/wp-content/uploads/2018/09/gradient-card.jpg"
                 ></card>

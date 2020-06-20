@@ -13,8 +13,16 @@ use App\Artigo;
 
 Route::get('/', function () {
     $listaArtigos = Artigo::getArtigosSite();
-    return view('site', compact('listaArtigos'));
-});
+    return view('site.index', compact('listaArtigos'));
+})->name('site');
+
+Route::get('/artigo/{id}/{titulo?}', function ($id) {
+    $artigo = Artigo::find($id);
+    if ($artigo) {
+        return view('site.artigo', compact('artigo'));
+    }
+    return redirect('site');
+})->name('site.artigo');
 
 Auth::routes();
 
