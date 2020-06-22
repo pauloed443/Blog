@@ -60644,7 +60644,9 @@ var render = function() {
     _c("div", { staticClass: "card-body" }, [
       _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.titulo))]),
       _vm._v(" "),
-      _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.descricao))]),
+      _c("p", { staticClass: "card-text text-truncate" }, [
+        _vm._v(_vm._s(_vm.descricao))
+      ]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [
         _c("small", { staticClass: "text-muted" }, [
@@ -60656,9 +60658,14 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("a", { staticClass: "card-link", attrs: { href: _vm.link } }, [
-        _vm._v(_vm._s(_vm.linktexto))
-      ])
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-primary card-link stretched-link",
+          attrs: { href: _vm.link }
+        },
+        [_vm._v(_vm._s(_vm.linktexto))]
+      )
     ])
   ])
 }
@@ -60807,9 +60814,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card" }, [
-    _c("div", { class: _vm.defineCorTitulo }, [
-      _vm._v("\n        " + _vm._s(_vm.titulo) + "\n    ")
-    ]),
+    _vm.titulo
+      ? _c("div", { class: _vm.defineCorTitulo }, [
+          _vm._v("\n        " + _vm._s(_vm.titulo) + "\n    ")
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c("div", { class: _vm.defineCorTituloBody }, [_vm._t("default")], 2)
   ])
