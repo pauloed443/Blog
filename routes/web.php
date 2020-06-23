@@ -26,12 +26,12 @@ Route::get('/artigo/{id}/{titulo?}', function ($id) {
 
 Auth::routes();
 
-Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin', 'AdminController@index')->name('admin')->middleware('can:autor');
 
 Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function()
 {
-    Route::resource('artigos', 'ArtigosController');
-    Route::resource('usuarios', 'UsuariosController');
-    Route::resource('autores', 'AutoresController');
-    Route::resource('administradores', 'AdministradoresController');
+    Route::resource('artigos', 'ArtigosController')->middleware('can:autor');
+    Route::resource('usuarios', 'UsuariosController')->middleware('can:eAdmin');
+    Route::resource('autores', 'AutoresController')->middleware('can:eAdmin');
+    Route::resource('administradores', 'AdministradoresController')->middleware('can:eAdmin');
 });
