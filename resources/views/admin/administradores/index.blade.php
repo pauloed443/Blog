@@ -13,7 +13,7 @@
             </button>
         </div>
     @endif
-    <painel titulo="Lista de Artigos">
+    <painel titulo="Lista de Administradores">
         <migalhas v-bind:lista="{{$listaMigalhas}}"></migalhas>
 
         <tabela-lista
@@ -22,10 +22,8 @@
             ordem="desc"
             ordemcol="0"
             criar="#criar"
-            detalhe="usuarios/"
-            editar="usuarios/"
-            deletar="usuarios/"
-            token="{{ csrf_token() }}"
+            detalhe="administradores/"
+            editar="administradores/"
             modal="t"
         ></tabela-lista>
         <div class="d-flex justify-content-center">
@@ -33,8 +31,8 @@
         </div>
     </painel>
 
-    <modal nome="adicionar" titulo="Adicionar Usuário">
-        <formulario id="formAdicionar" css="" action="{{ route('usuarios.store') }}" method="POST" enctype="" token="{{ csrf_token() }}">
+    <modal nome="adicionar" titulo="Adicionar Administrador">
+        <formulario id="formAdicionar" css="" action="{{ route('administradores.store') }}" method="POST" enctype="" token="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="name">Nome</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="" value="{{ old('name') }}">
@@ -43,20 +41,7 @@
                 <label for="email">E-mail</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="" value="{{ old('email') }}">
             </div>
-            <div class="form-group">
-                <label for="SelectAutor">Autor</label>
-                <select class="form-control" id="SelectAutor" name="autor">
-                    <option {{ (old('autor') && old('autor') == 'N' ? 'selected' : '') }} value="N">Não</option>
-                    <option {{ (old('autor') && old('autor') == 'S' ? 'selected' : '') }} value="S">Sim</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="SelectAdmin">Administrador</label>
-                <select class="form-control" id="SelectAdmin" name="admin">
-                    <option {{ (old('admin') && old('admin') == 'N' ? 'selected' : '') }} value="N">Não</option>
-                    <option {{ (old('admin') && old('admin') == 'S' ? 'selected' : '') }} value="S">Sim</option>
-                </select>
-            </div>
+            <input type="hidden" name="admin" value="S">
             <div class="form-group">
                 <label for="password">Senha</label>
                 <input type="password" class="form-control" id="password" name="password" value="{{ old('password') }}">
@@ -67,8 +52,8 @@
         </span>
     </modal>
 
-    <modal nome="editar" titulo="Edição de Usuário">
-        <formulario id="formEditar" css="" :action="'usuarios/' + $store.state.item.id" method="put" enctype="" token="{{ csrf_token() }}" autocomplete="off">
+    <modal nome="editar" titulo="Edição de Administrador">
+        <formulario id="formEditar" css="" :action="'administradores/' + $store.state.item.id" method="put" enctype="" token="{{ csrf_token() }}" autocomplete="off">
             <div class="form-group">
                 <label for="name">Nome</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="" v-model="$store.state.item.name">
@@ -78,15 +63,8 @@
                 <input type="email" class="form-control" id="email" name="email" placeholder="" v-model="$store.state.item.email" autocomplete="off">
             </div>
             <div class="form-group">
-                <label for="SelectAutor">Autor</label>
-                <select class="form-control" id="SelectAutor" name="autor" v-model="$store.state.item.autor">
-                    <option value="N">Não</option>
-                    <option value="S">Sim</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="SelectAdministrador">Administrador</label>
-                <select class="form-control" id="SelectAdministrador" name="admin" v-model="$store.state.item.admin">
+                <label for="SelectAdmin">Administrador</label>
+                <select class="form-control" id="SelectAdmin" name="admin" v-model="$store.state.item.admin">
                     <option value="N">Não</option>
                     <option value="S">Sim</option>
                 </select>
@@ -101,7 +79,7 @@
         </span>
     </modal>
 
-    <modal nome="detalhe" titulo="Usuário">
+    <modal nome="detalhe" titulo="Administrador">
         <p>@{{$store.state.item.name}}</p>
         <p>@{{$store.state.item.email}}</p>
     </modal>
