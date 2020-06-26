@@ -60644,9 +60644,7 @@ var render = function() {
     _c("div", { staticClass: "card-body" }, [
       _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.titulo))]),
       _vm._v(" "),
-      _c("p", { staticClass: "card-text text-truncate" }, [
-        _vm._v(_vm._s(_vm.descricao))
-      ]),
+      _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.descricao))]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [
         _c("small", { staticClass: "text-muted" }, [

@@ -46,16 +46,30 @@ class Artigo extends Model
         return $response;
     }
     
-    public static function getArtigosSite()
+    public static function getArtigosSite($search = null)
     {
-        $response = DB::table('artigos')
+        if ($search) {
+            $response = DB::table('artigos')
+                            ->join('users', 'users.id', '=', 'artigos.user_id')
+                            ->select('artigos.id','artigos.titulo','artigos.descricao', 'users.name as autor', 'artigos.dataPublicacao')
+                            ->whereNull('artigos.deleted_at')
+                            ->whereDate('artigos.dataPublicacao', '<=', date('Y-m-d'))
+                            ->where(function($query) use ($search) {
+                                $query->orWhere('artigos.titulo', 'like', '%' . $search . '%')
+                                        ->orWhere('artigos.descricao', 'like', '%' . $search . '%');
+                            })
+                            ->orderBy('artigos.dataPublicacao', 'DESC')
+                            ->get();
+        } else {
+            $response = DB::table('artigos')
                             ->join('users', 'users.id', '=', 'artigos.user_id')
                             ->select('artigos.id','artigos.titulo','artigos.descricao', 'users.name as autor', 'artigos.dataPublicacao')
                             ->whereNull('artigos.deleted_at')
                             ->whereDate('artigos.dataPublicacao', '<=', date('Y-m-d'))
                             ->orderBy('artigos.dataPublicacao', 'DESC')
                             ->get();
-
+        }
+        
         return $response;
     }
 }

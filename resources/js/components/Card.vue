@@ -3,7 +3,7 @@
         <img :src="imagemlink" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{ titulo }}</h5>
-            <p class="card-text text-truncate">{{ descricao }}</p>
+            <p class="card-text">{{ descricao }}</p>
             <p class="card-text"><small class="text-muted">{{ autor | capitalize }} • {{ data | FrontEndFormatDate }}</small></p>
             <a :href="link" class="btn btn-primary card-link stretched-link">{{ linktexto }}</a>
         </div>

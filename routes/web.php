@@ -1,5 +1,6 @@
 <?php
 use App\Artigo;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +12,16 @@ use App\Artigo;
 |
 */
 
-Route::get('/', function () {
-    $listaArtigos = Artigo::getArtigosSite();
-    return view('site.index', compact('listaArtigos'));
+Route::get('/', function (Request $request) {
+    if (isset($request->search) && $request->search != "") {
+        $listaArtigos = Artigo::getArtigosSite($request->search);
+        $search = $request->search;
+    } else {
+        $listaArtigos = Artigo::getArtigosSite();
+        $search = "";
+    }
+    
+    return view('site.index', compact('listaArtigos', 'search'));
 })->name('site');
 
 Route::get('/artigo/{id}/{titulo?}', function ($id) {
