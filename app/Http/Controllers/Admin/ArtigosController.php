@@ -24,6 +24,10 @@ class ArtigosController extends Controller
 
         $listaArtigos = Artigo::getArtigos(5);
 
+        foreach ($listaArtigos as $key => $artigo) {
+            $artigo->descricao = str_limit($artigo->descricao, 100);
+        }
+
         return view('admin.artigos.index', compact('listaMigalhas', 'listaArtigos'));
     }
 
@@ -57,8 +61,9 @@ class ArtigosController extends Controller
         if ($validator->fails()) {
           return redirect()->back()->withErrors($validator)->withInput();
         }
+        $user = auth()->user();
 
-        Artigo::create($data);
+        $user->artigos()->create($data);
         return redirect()->back();
     }
 
@@ -105,8 +110,9 @@ class ArtigosController extends Controller
         if ($validator->fails()) {
           return redirect()->back()->withErrors($validator)->withInput();
         }
+        $user = auth()->user();
 
-        Artigo::find($id)->update($data);
+        $user->artigos()->find($id)->update($data);
         return redirect()->back();
     }
 

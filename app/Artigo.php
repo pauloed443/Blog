@@ -36,12 +36,25 @@ class Artigo extends Model
             unset($artigo->user);
             //$artigo->user;
         }*/
+
+        $user = auth()->user();
         
-        $response = DB::table('artigos')
+        if ($user->admin == "S") {
+            $response = DB::table('artigos')
                             ->join('users', 'users.id', '=', 'artigos.user_id')
                             ->select('artigos.id','artigos.titulo','artigos.descricao', 'users.name', 'artigos.dataPublicacao')
                             ->whereNull('deleted_at')
+                            ->orderBy('artigos.id', 'DESC')
                             ->paginate(5);
+        } else {
+            $response = DB::table('artigos')
+                            ->join('users', 'users.id', '=', 'artigos.user_id')
+                            ->select('artigos.id','artigos.titulo','artigos.descricao', 'users.name', 'artigos.dataPublicacao')
+                            ->whereNull('deleted_at')
+                            ->where('artigos.user_id', $user->id)
+                            ->orderBy('artigos.id', 'DESC')
+                            ->paginate(5);
+        }
 
         return $response;
     }
